@@ -1,0 +1,57 @@
+# creation des networks
+networks:
+  myNetwork:
+
+# creation des volumes
+volumes:
+  bdd_database:
+
+services:
+  # Mise en place d'un service pour la bdd
+  db:
+    image: mysql:8
+    container_name: bdd_mysql
+    environment:
+      MYSQL_DATABASE: myBDD
+      MYSQL_ROOT_PASSWORD: rootBDD
+      MYSQL_USER: usernameBDD
+      MYSQL_PASSWORD: passwordBDD
+    networks:
+      - myNetwork
+    volumes:
+      - bdd_database:/var/lib/mysql:rw
+    healthcheck:
+      test: pg_isready -U usernameBDD -d myBDD
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    
+  # Pour le Back
+  back:
+    image: java
+    depends_on:
+      - db
+    build:
+      context: java
+      dockerfile: Dockerfile
+    container_name: java_back
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://bdd_mysql:3306/myBDD
+      SPRING_DATASOURCE_USERNAME: usernameBDD
+      SPRING_DATASOURCE_PASSWORD: passwordBDD
+    ports:
+      - 8448:8448
+    networks:
+      - myNetwork
+
+  # Pour le Front
+  front:
+    image: angular
+    build:
+      context: angular
+      dockerfile: Dockerfile
+    container_name: angular_front
+    environment:
+      BACKEND_URL: http://localhost:8888
+    ports:
+      - 8888:80

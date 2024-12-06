@@ -1,0 +1,16 @@
+Qu'est ce que Docker ? A quoi cela sert-il ?
+--------------------------------------------
+
+Docker permet de créer ce qu'on 
+
+
+Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
+------------------------------------------------------
+
+
+Qu'avez vous pensez du cours ?
+------------------------------
+
+Surprenez moi
+-------------
+AAAAAAAAAAAAAAAAH (j'espère que je vous ais surpris)
