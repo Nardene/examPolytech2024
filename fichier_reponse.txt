@@ -1,15 +1,20 @@
 Qu'est ce que Docker ? A quoi cela sert-il ?
 --------------------------------------------
 
-Docker permet de créer ce qu'on 
+Docker est une plateforme open-source, Français qui permet de créer ce qu'on appelle des conteneurs. Chaque conteneurs pourra tourner des applications de manière isolées, 
+légére et portatible. Cela permet d'avoir une standardisation des environements de travail, une optimisation des ressources...
 
 
 Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
 ------------------------------------------------------
+CI : C'est une pratique ou on va fréquement tester afin de voir les erreurs dans un code
+CD : Extension de CI ou on va déployer le code en production
 
 
 Qu'avez vous pensez du cours ?
 ------------------------------
+Très bon cours, très bien présenté, juste la partie sur git un peu rapide et la partie nginx un peu flou pour ma part...
+sinon super
 
 Surprenez moi
 -------------
